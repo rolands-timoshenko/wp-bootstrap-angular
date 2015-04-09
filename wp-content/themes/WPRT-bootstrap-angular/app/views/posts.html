@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-sm-8">
+        <div class="row" id="post-{{post.ID}}" ng-repeat="post in posts" infinity infinity-bottom="nextPage()" infinity-busy="busy">
+            <div class="col-sm-12">
+                <h2><a href="#/posts/{{post.ID}}">{{post.title}}</a></h2>
+                <div class="entry" ng-bind-html="html(post.excerpt)"></div>
+                <div class="postmetadata">
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>

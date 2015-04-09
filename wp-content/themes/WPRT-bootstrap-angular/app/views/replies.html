@@ -1,0 +1,16 @@
+<hr />
+<div class="media-left">
+    <img alt="" class="media-object" style="width: 64px; height: 64px;" src="{{comment.author.avatar}}" />
+</div>
+<div class="media-body">
+    <h4 class="media-heading" id="media-heading">{{comment.author.name}}<a href="#media-heading" class="anchorjs-link"><span class="anchorjs-icon"></span></a></h4>
+    <div ng-bind-html="html(comment.content)"></div>
+    <p>
+        <button type="button" ng-hide="(comment.has_child && !comment.comments)" class="btn btn-primary btn-xs" ng-click="setCommentParent(comment.ID)">Reply</button>
+        <button type="button" ng-show="comment.has_child" class="btn btn-default btn-xs" ng-class="(comment.comments)?'disabled':''" ng-click="loadReplies(comment.ID,comment)">Replies</button>
+    </p>
+</div>
+<div ng-if="(commentForm.comment_parent === comment.ID)">
+    <div ng-include="viewPath+'comment-form.html'" ></div>
+</div>
+<div class="media" style="margin-left:70px;" ng-repeat="comment in comment.comments" ng-include="viewPath+'replies.html'"></div>

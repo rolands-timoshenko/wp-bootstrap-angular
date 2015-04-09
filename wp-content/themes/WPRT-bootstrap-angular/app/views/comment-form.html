@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>Write comment</h2>
+        <form ng-submit="addComment(comment)">
+            <input type="hidden" ng-model="commentForm.comment_parent"/>
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" ng-model="commentForm.comment_author_email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="exampleInputPassword1" ng-model="commentForm.comment_author" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" rows="3" name="message" ng-model="commentForm.comment_content" placeholder="Enter Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
